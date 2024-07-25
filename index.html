@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <br />
+    <h2 style="text-align: center">Javascript Table</h2>
+    <br />
+    <div class="col-md-12 row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div style="height: 350px; overflow: auto">
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Id</th>
+                <th scope="col">Items</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Rate</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><input id="item" type="text" placeholder="Enter Item" /></td>
+                    <td><input id="quantity" type="number" placeholder="Enter Quantity" step="0.01" /></td>
+                    <td><input id="rate" type="number" placeholder="Enter Rate"  step="0.01" /></td>
+                    <td><input id="amount" type="number" step="0.01" disabled /></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <button id="addButton" class="btn btn-primary" type="submit" name="itemTable">Add</button>
+      </div>
+      <div class="col-md-2"></div>
+    </div> <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Confirm delete?
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="confirmDeleteBtn" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
