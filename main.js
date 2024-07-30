@@ -3,12 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const rowsPerPage = 4;
   let currentPage = 1;
 
-  // Function to render the table
   function renderTable() {
       const searchTerm = document.getElementById('searchInput').value.toLowerCase();
       const rows = document.querySelectorAll('table tbody tr:not(#input-row)');
       
-      // Filter rows based on the search term
       const filteredRows = Array.from(rows).filter(row => {
           const rowText = row.textContent.toLowerCase();
           return rowText.includes(searchTerm);
@@ -16,10 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
 
-      // Hide all rows
       rows.forEach(row => row.style.display = 'none');
 
-      // Show only filtered rows for the current page
       filteredRows.forEach((row, index) => {
           if (index >= (currentPage - 1) * rowsPerPage && index < currentPage * rowsPerPage) {
               row.style.display = '';
@@ -29,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
       renderPagination(totalPages);
   }
 
-  // Function to render pagination buttons
   function renderPagination(totalPages) {
       const pagination = document.getElementById('pagination');
       pagination.innerHTML = '';
@@ -42,10 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
               pageButton.classList.add('active');
           }
 
-          // Add event listener to handle page changes
           pageButton.addEventListener('click', () => {
               currentPage = i;
-              renderTable(); // Re-render the table for the selected page
+              renderTable(); 
           });
 
           pagination.appendChild(pageButton);
@@ -55,8 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('quantity').addEventListener('input', calculateAmount);
   document.getElementById('rate').addEventListener('input', calculateAmount);
   document.getElementById('searchInput').addEventListener('input', function() {
-      currentPage = 1; // Reset to the first page when searching
-      renderTable(); // Re-render the table based on the search input
+      currentPage = 1;
+      renderTable(); 
   });
 
   renderTable();
